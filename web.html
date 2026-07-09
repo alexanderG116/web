@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard IoT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon">IoT</span>
+      <h1>Dashboard IoT</h1>
+    </div>
+
+    <nav class="menu">
+      <a href="#">Inicio</a>
+      <a href="#">Dispositivos</a>
+      <a href="#">Histórico</a>
+      <a href="#">Alertas</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+
+    <section class="hero">
+      <h2>Gestión de Dispositivos IoT</h2>
+      <p>Monitoreo visual de sensores, estados y valores históricos.</p>
+    </section>
+
+    <section class="cards-actuales">
+      <article class="card">
+        <h3>Temperatura</h3>
+        <p class="valor">28.5 °C</p>
+        <span class="estado normal">Normal</span>
+      </article>
+
+      <article class="card">
+        <h3>Humedad</h3>
+        <p class="valor">72 %</p>
+        <span class="estado medio">Media</span>
+      </article>
+
+      <article class="card">
+        <h3>Presión</h3>
+        <p class="valor">1012 hPa</p>
+        <span class="estado normal">Estable</span>
+      </article>
+
+      <article class="card">
+        <h3>Dispositivo</h3>
+        <p class="valor">Online</p>
+        <span class="estado activo">Activo</span>
+      </article>
+    </section>
+
+    <section class="seccion">
+      <h2>Valores Históricos</h2>
+
+      <div class="cards-historicas">
+        <article class="card-historial">
+          <h3>Temperatura Máxima</h3>
+          <p>32.1 °C</p>
+          <small>Registrado hoy a las 14:30</small>
+        </article>
+
+        <article class="card-historial">
+          <h3>Temperatura Mínima</h3>
+          <p>22.4 °C</p>
+          <small>Registrado hoy a las 06:10</small>
+        </article>
+
+        <article class="card-historial">
+          <h3>Humedad Máxima</h3>
+          <p>88 %</p>
+          <small>Registrado ayer a las 18:45</small>
+        </article>
+
+        <article class="card-historial">
+          <h3>Última Lectura</h3>
+          <p>Hace 2 minutos</p>
+          <small>Sensor ESP32 - Nodo 01</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <h2>Tabla de Lecturas IoT</h2>
+
+      <div class="tabla-contenedor">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Dispositivo</th>
+              <th>Temperatura</th>
+              <th>Humedad</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>08/07/2026</td>
+              <td>09:00</td>
+              <td>ESP32-01</td>
+              <td>28.5 °C</td>
+              <td>72 %</td>
+              <td><span class="estado activo">Activo</span></td>
+            </tr>
+            <tr>
+              <td>08/07/2026</td>
+              <td>08:30</td>
+              <td>ESP32-01</td>
+              <td>27.8 °C</td>
+              <td>70 %</td>
+              <td><span class="estado normal">Normal</span></td>
+            </tr>
+            <tr>
+              <td>08/07/2026</td>
+              <td>08:00</td>
+              <td>ESP32-02</td>
+              <td>31.2 °C</td>
+              <td>80 %</td>
+              <td><span class="estado medio">Revisar</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Aplicaciones Telemáticas Basadas en Web - Dashboard IoT</p>
+  </footer>
+
+</body>
+</html>
