@@ -117,5 +117,3 @@ El dashboard proporciona acceso rápido a:
 ---
 
 **Última actualización**: 2026-07-09
-
-Para más información sobre OpenAQ, visite: [openaq.org](https://openaq.org)
