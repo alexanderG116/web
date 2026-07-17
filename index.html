@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAQ Monitor — Gestión Ambiental IoT</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <div class="marca">
+      <div class="marca-icono">AQ</div>
+      <div class="marca-texto">
+        <h1>OpenAQ Monitor</h1>
+        <span>Red ambiental IoT</span>
+      </div>
+    </div>
+
+    <nav class="nav-grupo">
+      <p class="nav-titulo">General</p>
+      <ul class="nav-lista">
+        <li><a class="nav-link activo" href="#">
+          <span class="nav-icono">▣</span> Dashboard
+        </a></li>
+        <li><a class="nav-link" href="#">
+          <span class="nav-icono">◎</span> Mapa de calidad
+        </a></li>
+        <li><a class="nav-link" href="#">
+          <span class="nav-icono">▤</span> Dispositivos
+        </a></li>
+      </ul>
+    </nav>
+
+    <nav class="nav-grupo">
+      <p class="nav-titulo">Monitoreo</p>
+      <ul class="nav-lista">
+        <li><a class="nav-link" href="#">
+          <span class="nav-icono">≋</span> Histórico
+        </a></li>
+        <li><a class="nav-link" href="#">
+          <span class="nav-icono">⚠</span> Alertas activas
+        </a></li>
+        <li><a class="nav-link" href="#">
+          <span class="nav-icono">⬇</span> Exportar datos
+        </a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-pie">
+      <strong>Fuente de datos</strong>
+      API OpenAQ · actualizado hace 3 min
+    </div>
+  </aside>
+
+  <!-- ===================== CONTENIDO PRINCIPAL ===================== -->
+  <main class="principal">
+
+    <!-- Barra superior -->
+    <header class="topbar">
+      <div class="topbar-titulo">
+        <p class="eyebrow">Panel de monitoreo</p>
+        <h2>Gestión Ambiental de Dispositivos IoT</h2>
+        <p class="sub">Visualización en tiempo real de estaciones de calidad del aire — API OpenAQ</p>
+      </div>
+      <div class="topbar-acciones">
+        <div class="pill-region">🌎 Región: <strong>&nbsp;Ecuador</strong></div>
+        <button class="icono-btn" aria-label="Notificaciones">
+          🔔<span class="punto"></span>
+        </button>
+        <div class="avatar" title="Cristian Zambrano">CZ</div>
+      </div>
+    </header>
+
+    <!-- KPIs -->
+    <section class="kpis" aria-label="Indicadores generales">
+
+      <article class="kpi-gauge">
+        <div class="gauge" style="--valor:52">
+          <div class="gauge-valor">52<small>ÍNDICE AQI</small></div>
+        </div>
+        <div class="kpi-gauge-texto">
+          <p class="label">Promedio global</p>
+          <span class="badge-estado moderado">Moderado</span>
+          <p class="desc">Calidad del aire dentro de rango aceptable en la red monitoreada.</p>
+        </div>
+      </article>
+
+      <article class="kpi-card">
+        <div class="kpi-top">
+          <div>
+            <p class="label">Total de dispositivos</p>
+            <p class="valor mono">145</p>
+          </div>
+          <div class="kpi-icono azul">▤</div>
+        </div>
+        <span class="kpi-delta positivo">▲ 6 nuevos esta semana</span>
+      </article>
+
+      <article class="kpi-card">
+        <div class="kpi-top">
+          <div>
+            <p class="label">Estaciones activas</p>
+            <p class="valor mono">138</p>
+          </div>
+          <div class="kpi-icono verde">◎</div>
+        </div>
+        <span class="kpi-delta">95.2% de disponibilidad</span>
+      </article>
+
+      <article class="kpi-card">
+        <div class="kpi-top">
+          <div>
+            <p class="label">Alertas activas</p>
+            <p class="valor mono">0</p>
+          </div>
+          <div class="kpi-icono ambar">⚠</div>
+        </div>
+        <span class="kpi-delta">Sin incidencias registradas</span>
+      </article>
+
+    </section>
+
+    <!-- Mapa + panel de detalle -->
+    <section class="grid-principal">
+
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h3>Mapa de estaciones</h3>
+            <p>Ubicaciones obtenidas desde el endpoint /locations</p>
+          </div>
+          <div class="leyenda">
+            <span class="leyenda-item"><span class="leyenda-punto" style="background:var(--aqi-good)"></span>Buena</span>
+            <span class="leyenda-item"><span class="leyenda-punto" style="background:var(--aqi-moderate)"></span>Moderada</span>
+            <span class="leyenda-item"><span class="leyenda-punto" style="background:var(--aqi-bad)"></span>Mala</span>
+          </div>
+        </div>
+
+        <div class="mapa-lienzo" role="img" aria-label="Mapa mundial con ubicaciones de estaciones de calidad del aire">
+          <div class="mapa-grid"></div>
+          <div class="continente norteamerica"></div>
+          <div class="continente suramerica"></div>
+          <div class="continente europa"></div>
+          <div class="continente africa"></div>
+          <div class="continente asia"></div>
+          <div class="continente oceania"></div>
+
+          <div class="pin activo" style="top:47%; left:24%;">
+            <span class="pin-etiqueta">Quito, Ecuador</span>
+          </div>
+          <div class="pin bueno" style="top:52%; left:23.5%;"></div>
+          <div class="pin moderado" style="top:58%; left:26%;"></div>
+          <div class="pin bueno" style="top:22%; left:16%;"></div>
+          <div class="pin malo" style="top:20%; left:52%;"></div>
+          <div class="pin bueno" style="top:26%; left:60%;"></div>
+          <div class="pin moderado" style="top:38%; left:70%;"></div>
+          <div class="pin bueno" style="top:63%; left:82%;"></div>
+          <div class="pin moderado" style="top:35%; left:44%;"></div>
+
+          <span class="mapa-marca-agua">Integración prevista: Google Maps API</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h3>Detalle de ubicación</h3>
+            <p>Estación seleccionada</p>
+          </div>
+        </div>
+
+        <div class="detalle-cuerpo">
+          <div class="detalle-ubicacion">
+            <h4>Quito Centro — Ref. QUITC-01</h4>
+          </div>
+          <p class="detalle-sub">Quito, Pichincha, Ecuador</p>
+
+          <div class="detalle-fila"><span class="k">Proveedor</span><span class="v">Red Nacional del Aire</span></div>
+          <div class="detalle-fila"><span class="k">Tipo de estación</span><span class="v">Fija — referencia</span></div>
+          <div class="detalle-fila"><span class="k">Última transmisión</span><span class="v mono">21/07/2026 11:37</span></div>
+
+          <p class="sensores-titulo">Sensores disponibles</p>
+
+          <div class="sensor-item">
+            <div class="sensor-info">
+              <span class="sensor-dot" style="background:var(--sky-500)"></span>
+              <div>
+                <p class="sensor-nombre">Temperatura</p>
+                <p class="sensor-unidad">°C</p>
+              </div>
+            </div>
+            <span class="sensor-valor">23.4</span>
+          </div>
+
+          <div class="sensor-item">
+            <div class="sensor-info">
+              <span class="sensor-dot" style="background:var(--teal-500)"></span>
+              <div>
+                <p class="sensor-nombre">Humedad relativa</p>
+                <p class="sensor-unidad">%</p>
+              </div>
+            </div>
+            <span class="sensor-valor">58</span>
+          </div>
+
+          <div class="sensor-item">
+            <div class="sensor-info">
+              <span class="sensor-dot" style="background:var(--aqi-moderate)"></span>
+              <div>
+                <p class="sensor-nombre">Calidad del aire (PM2.5)</p>
+                <p class="sensor-unidad">µg/m³</p>
+              </div>
+            </div>
+            <span class="sensor-valor">52</span>
+          </div>
+
+          <div class="mini-grafico">
+            <div class="mini-grafico-header">
+              <h5>Temperatura (24h)</h5>
+              <span>°C</span>
+            </div>
+            <div class="barras">
+              <div class="barra" style="height:40%"></div>
+              <div class="barra" style="height:52%"></div>
+              <div class="barra" style="height:48%"></div>
+              <div class="barra" style="height:65%"></div>
+              <div class="barra" style="height:70%"></div>
+              <div class="barra" style="height:88%"></div>
+              <div class="barra pico" style="height:100%"></div>
+              <div class="barra" style="height:76%"></div>
+              <div class="barra" style="height:60%"></div>
+              <div class="barra" style="height:44%"></div>
+            </div>
+          </div>
+
+          <div class="mini-grafico">
+            <div class="mini-grafico-header">
+              <h5>Calidad del aire (24h)</h5>
+              <span>PM2.5</span>
+            </div>
+            <div class="barras">
+              <div class="barra" style="height:30%"></div>
+              <div class="barra" style="height:34%"></div>
+              <div class="barra" style="height:42%"></div>
+              <div class="barra pico" style="height:95%"></div>
+              <div class="barra" style="height:80%"></div>
+              <div class="barra" style="height:60%"></div>
+              <div class="barra" style="height:38%"></div>
+              <div class="barra" style="height:33%"></div>
+              <div class="barra" style="height:28%"></div>
+              <div class="barra" style="height:25%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Tabla de dispositivos -->
+    <section class="panel">
+      <div class="panel-header">
+        <div>
+          <h3>Dispositivos IoT (NOAA / OpenAQ)</h3>
+          <p>Últimas transmisiones registradas por estación</p>
+        </div>
+      </div>
+
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Estación</th>
+              <th>Ubicación</th>
+              <th>Sensor</th>
+              <th>Última transmisión</th>
+              <th>Estado</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="dispositivo-nombre"><span class="dispositivo-icono">◎</span> NOKW_ESP32_01</td>
+              <td>Quito, Ecuador</td>
+              <td>DHT22</td>
+              <td class="mono">21/07/2026 11:37</td>
+              <td><span class="etiqueta-estado bueno">Activo</span></td>
+              <td><a class="ver-mas" href="#">Ver</a></td>
+            </tr>
+            <tr>
+              <td class="dispositivo-nombre"><span class="dispositivo-icono">◎</span> NOKW_ESP32_02</td>
+              <td>Guayaquil, Ecuador</td>
+              <td>DHT22</td>
+              <td class="mono">21/07/2026 11:29</td>
+              <td><span class="etiqueta-estado moderado">Revisar</span></td>
+              <td><a class="ver-mas" href="#">Ver</a></td>
+            </tr>
+            <tr>
+              <td class="dispositivo-nombre"><span class="dispositivo-icono">◎</span> NOKW_ESP32_03</td>
+              <td>Cuenca, Ecuador</td>
+              <td>BME280</td>
+              <td class="mono">21/07/2026 11:12</td>
+              <td><span class="etiqueta-estado bueno">Activo</span></td>
+              <td><a class="ver-mas" href="#">Ver</a></td>
+            </tr>
+            <tr>
+              <td class="dispositivo-nombre"><span class="dispositivo-icono">◎</span> NOKW_ESP32_04</td>
+              <td>Manta, Ecuador</td>
+              <td>PMS5003</td>
+              <td class="mono">21/07/2026 10:58</td>
+              <td><span class="etiqueta-estado malo">Fuera de línea</span></td>
+              <td><a class="ver-mas" href="#">Ver</a></td>
+            </tr>
+            <tr>
+              <td class="dispositivo-nombre"><span class="dispositivo-icono">◎</span> NOKW_ESP32_05</td>
+              <td>Ambato, Ecuador</td>
+              <td>DHT22</td>
+              <td class="mono">21/07/2026 10:41</td>
+              <td><span class="etiqueta-estado bueno">Activo</span></td>
+              <td><a class="ver-mas" href="#">Ver</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="sr-only">
+      Aplicaciones Telemáticas Basadas en Web — UTEQ — Diseño de interfaz para gestión de dispositivos IoT
+    </footer>
+
+  </main>
+</div>
+
+</body>
+</html>
